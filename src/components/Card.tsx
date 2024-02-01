@@ -1,5 +1,6 @@
 "use client";
 import { BoardContext } from "@/components/BoardContext";
+import PresencesAvatars from "@/components/PresenceAvatars";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
@@ -24,9 +25,12 @@ export default function Card({ id, name }: { id: string; name: string }) {
     <Link
       href={`/boards/${params.boardId}/cards/${id}`}
       key={id}
-      className="border block bg-white my-2 p-4 rounded-md"
+      className="relative border block bg-white my-2 py-8 px-4 rounded-md"
     >
       <span> {name} </span>
+      <div className="absolute bottom-1 right-1">
+        <PresencesAvatars presenseKey={"cardId"} presenceValue={id} />
+      </div>
     </Link>
   );
 }

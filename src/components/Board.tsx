@@ -2,7 +2,11 @@
 
 import { updateBoard } from "@/app/actions/boardAction";
 import { metadata } from "@/app/layout";
-import { RoomProvider } from "@/app/liveblocks.config";
+import {
+  RoomProvider,
+  useMyPresence,
+  useUpdateMyPresence,
+} from "@/app/liveblocks.config";
 import { BoardContextProvider } from "@/components/BoardContext";
 import Columns from "@/components/Columns";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
@@ -11,7 +15,7 @@ import { LiveList } from "@liveblocks/client";
 import { ClientSideSuspense } from "@liveblocks/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 export type CardType = {
   name: string;
@@ -24,6 +28,16 @@ export default function Board({ id, name }: { id: string; name: string }) {
   const [renameMode, setRenameMode] = useState(false);
 
   const router = useRouter();
+  const updateMyPresence = useUpdateMyPresence();
+
+  useEffect(() => {
+    updateMyPresence({ boardId: id });
+
+    return () => {
+      updateMyPresence({ boardId: null });
+    };
+  }, []);
+
   async function handleNameSubmit(ev: FormEvent) {
     ev.preventDefault();
     const input = (ev.target as HTMLInputElement).querySelector("input");

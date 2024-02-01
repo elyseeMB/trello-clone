@@ -6,7 +6,6 @@ body {
   background-color: #f6f7fb;
 }
 
-button[type="button"],
 button[type="submit"],
 .btn,
 button.primary {
@@ -71,4 +70,8 @@ button.with-icon {
   h2 {
     @apply text-2xl;
   }
+}
+
+.lb-portal {
+  z-index: 30;
 }
