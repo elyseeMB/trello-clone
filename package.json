@@ -16,7 +16,15 @@
     "@liveblocks/client": "^1.9.7",
     "@liveblocks/node": "^1.9.7",
     "@liveblocks/react": "^1.9.7",
+    "@liveblocks/yjs": "^1.9.7",
     "@tailwindcss/forms": "^0.5.7",
+    "@tiptap/extension-collaboration": "^2.2.1",
+    "@tiptap/extension-collaboration-cursor": "^2.2.1",
+    "@tiptap/extension-placeholder": "^2.2.1",
+    "@tiptap/extension-underline": "^2.2.1",
+    "@tiptap/pm": "^2.2.1",
+    "@tiptap/react": "^2.2.1",
+    "@tiptap/starter-kit": "^2.2.1",
     "@types/uniqid": "^5.3.4",
     "mongodb": "^6.3.0",
     "next": "14.0.4",
@@ -25,7 +33,10 @@
     "react-dom": "^18",
     "react-sortablejs": "^6.1.4",
     "sortablejs": "^1.15.2",
-    "uniqid": "^5.4.0"
+    "uniqid": "^5.4.0",
+    "y-prosemirror": "^1.2.2",
+    "y-protocols": "^1.0.6",
+    "yjs": "^13.6.11"
   },
   "devDependencies": {
     "@types/node": "^20",
