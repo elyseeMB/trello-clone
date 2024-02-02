@@ -11,7 +11,7 @@ const Header = async () => {
     <header className="bg-gray-200 p-4 px-8">
       <div className="flex justify-between items-center">
         <Link href={`/`} className="logo">
-          Trello
+          Taleau
         </Link>
         <div>
           {session && (
