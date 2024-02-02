@@ -33,7 +33,7 @@ function Columns() {
   }
 
   return (
-    <div className="gap-4 grid md:grid-cols-2 lg:grid-cols-2 ">
+    <div className="flex gap-4">
       <ReactSortable
         list={columns}
         setList={setColumnsOrder}
