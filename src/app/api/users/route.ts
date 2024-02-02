@@ -16,7 +16,6 @@ export async function GET(req: NextRequest) {
   if (url.searchParams.get("ids")) {
     const emails = url.searchParams.get("ids");
     users = await User.find({ email: { $in: emails } });
-    console.log({ users });
   }
 
   if (url.toString().includes("?search=")) {
