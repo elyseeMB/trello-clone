@@ -55,16 +55,5 @@ export const {
   useThreads,
   /* ...all the other hooks you’re using... */
 } = createRoomContext<Presence, Storage, UserMeta, RoomEvent, ThreadMetadata>(
-  client,
-  {
-    resolveUsers: async ({ userIds }) => {
-      const response = await fetch("/api/users?ids=" + userIds.join(","));
-      return await response.json();
-    },
-    resolveMentionSuggestions: async ({ text }) => {
-      const response = await fetch("/api/users?search=" + text);
-      const users = await response.json();
-      return users.map((user: UserMeta) => user.id);
-    },
-  }
+  client
 );

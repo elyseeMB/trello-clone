@@ -79,8 +79,8 @@ export default function Column({ id, name }: ColumnProps) {
   }
 
   return (
-    <div className="w-48 shadow-sm rounded-md p-2 bg-white">
-      <div>
+    <div className="shadow-sm rounded-md p-2 bg-white flex flex-col gap-2">
+      <div className="h-fit">
         {!renameMode && (
           <div className="flex justify-between">
             <h3>{name}</h3>
@@ -118,18 +118,20 @@ export default function Column({ id, name }: ColumnProps) {
         <>
           <ReactSortable
             list={columnCards}
-            setList={(items) => setTaskOrderForColumn(items, id)}
+            setList={(items) => setTaskOrderForColumn(items as Card[], id)}
             group="cards"
-            className="min-h-12"
+            className="h-fit"
             ghostClass="opacity-40"
           >
-            {columnCards.map((card) => (
-              <ColumnCard
-                key={card.id}
-                id={card.id.toString()}
-                name={card.name.toString()}
-              />
-            ))}
+            <div className="flex w-full flex-col gap-2">
+              {columnCards.map((card) => (
+                <ColumnCard
+                  key={card.id}
+                  id={card.id.toString()}
+                  name={card.name.toString()}
+                />
+              ))}
+            </div>
           </ReactSortable>
         </>
       )}
